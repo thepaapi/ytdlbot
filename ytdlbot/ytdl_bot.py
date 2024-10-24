@@ -6,7 +6,9 @@
 #
 
 __author__ = "Benny <benny.think@gmail.com>"
-PORT = 8081
+import os
+from flask import Flask
+from threading import Thread
 import contextlib
 import json
 import logging
@@ -87,7 +89,20 @@ def private_use(func):
         if message.chat.type != enums.ChatType.PRIVATE and not getattr(message, "text", "").lower().startswith("/ytdl"):
             logging.debug("%s, it's annoying me...🙄️ ", message.text)
             return
+# Minimal Flask app to open a port for Render
+app = Flask('')
 
+@app.route('/')
+def home():
+    return "Bot is running and port is open."
+
+def run():
+    port = int(os.environ.get('PORT', 5000))  # Render sets this automatically
+    app.run(host='0.0.0.0', port=port)
+
+def keep_alive():
+    t = Thread(target=run)
+    t.start()
         # authorized users check
         if AUTHORIZED_USER:
             users = [int(i) for i in AUTHORIZED_USER.split(",")]
@@ -748,6 +763,8 @@ def trx_notify(_, **kwargs):
 
 
 if __name__ == "__main__":
+    keep_alive()  # Start the Flask server in a separate thread
+    bot.polling()  # Start the bot polling
     botStartTime = time.time()
     MySQL()
     TRX_SIGNAL.connect(trx_notify)
