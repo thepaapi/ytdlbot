@@ -6,7 +6,7 @@
 #
 
 __author__ = "Benny <benny.think@gmail.com>"
-
+PORT = 8081
 import contextlib
 import json
 import logging
@@ -18,16 +18,8 @@ import time
 import traceback
 from io import BytesIO
 from typing import Any
-import http.server
-import socketserver
 
-PORT = 8081
 
-Handler = http.server.SimpleHTTPRequestHandler
-
-with socketserver.TCPServer(("", PORT), Handler) as httpd:
-    print(f"Serving at port {PORT}")
-    httpd.serve_forever()
 import psutil
 import pyrogram.errors
 import qrcode
