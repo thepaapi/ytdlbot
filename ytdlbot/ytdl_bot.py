@@ -18,7 +18,6 @@ import time
 import traceback
 from io import BytesIO
 from typing import Any
-const port = process.env.PORT || 5000;
 
 import psutil
 import pyrogram.errors
@@ -766,7 +765,7 @@ if __name__ == "__main__":
  ▌  ▌ ▌ ▌ ▌  ▌  ▌ ▌ ▌ ▌ ▛▀  ▌ ▌ ▌ ▌ ▐▐▐  ▌ ▌ ▐  ▌ ▌ ▞▀▌ ▌ ▌
  ▘  ▝▀  ▝▀▘  ▘  ▝▀▘ ▀▀  ▝▀▘ ▀▀  ▝▀   ▘▘  ▘ ▘  ▘ ▝▀  ▝▀▘ ▝▀▘
 
-By @BennyThink, VIP mode: {ENABLE_VIP}, Celery Mode: {ENABLE_CELERY}
+By Anurag, VIP mode: {ENABLE_VIP}, Celery Mode: {ENABLE_CELERY}
 Version: {get_revision()}
     """
     print(banner)
