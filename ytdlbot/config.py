@@ -5,7 +5,7 @@
 # 8/28/21 15:01
 #
 
-__author__ = "Benny <benny.think@gmail.com>"
+__author__ = "Anurag Tiwari <bigstark.in>"
 
 import os
 
@@ -21,7 +21,7 @@ TOKEN = os.getenv("TOKEN", "7832140341:AAHcIK2gIBkB7Krvb8wHikOKKaw1C2WyAbs")
 REDIS = os.getenv("REDIS", "redis")
 
 ENABLE_VIP = os.getenv("VIP", False)
-OWNER = os.getenv("OWNER", "BennyThink")
+OWNER = os.getenv("OWNER", "Anurag Tiwari")
 
 # limitation settings
 AUTHORIZED_USER: str = os.getenv("AUTHORIZED_USER", "")
@@ -49,8 +49,8 @@ ENABLE_ARIA2 = os.getenv("ENABLE_ARIA2", False)
 RCLONE_PATH = os.getenv("RCLONE")
 
 # payment settings
-AFD_LINK = os.getenv("AFD_LINK", "https://afdian.net/@BennyThink")
-COFFEE_LINK = os.getenv("COFFEE_LINK", "https://www.buymeacoffee.com/bennythink")
+AFD_LINK = os.getenv("AFD_LINK", " ")
+COFFEE_LINK = os.getenv("COFFEE_LINK", " ")
 COFFEE_TOKEN = os.getenv("COFFEE_TOKEN")
 AFD_TOKEN = os.getenv("AFD_TOKEN")
 AFD_USER_ID = os.getenv("AFD_USER_ID")
