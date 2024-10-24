@@ -35,8 +35,7 @@ class BotText:
 3. If the bot doesn't work, try again after some time.
 
     """
-
-    about = "YouTube Downloader by Anurag Tiwari.
+    about = "YouTube Downloader by Anurag Tiwari."
     buy = f"""
 **Terms:**
 1. You can use this bot to download video for {FREE_DOWNLOAD} times within a 24-hour period.
