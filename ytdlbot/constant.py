@@ -5,7 +5,7 @@
 # 8/16/21 16:59
 #
 
-__author__ = "Benny <benny.think@gmail.com>"
+__author__ = "Anurag Tiwari"
 
 import os
 
@@ -23,24 +23,20 @@ from utils import get_func_queue
 
 class BotText:
     start = """
-    Welcome to YouTube Download bot. Type /help for more information. Recommend to use EU Bot
-    EU🇪🇺: @benny_2ytdlbot
-    SG🇸🇬：@benny_ytdlbot
-
-    Join https://t.me/+OGRC8tp9-U9mZDZl for updates."""
+    Welcome to YouTube Download bot. Paste Youtube Video Link or Type /help for more information.
+    
+    Join @bigstark2 for updates."""
 
     help = """
 1. For YouTube and any websites supported by yt-dlp, just send the link and we will download and send it to you.
 
-2. For specific links use `/spdl {URL}`. More info at https://github.com/SanujaNS/ytdlbot-telegram#supported-websites 
+2. For specific links use `/spdl {URL}`.  
 
-3. If the bot doesn't work, try again or join https://t.me/+OGRC8tp9-U9mZDZl for updates.
+3. If the bot doesn't work, try again after some time.
 
-4. Wanna deploy it yourself?\nHere's the source code: https://github.com/tgbot-collection/ytdlbot
     """
 
-    about = "YouTube Downloader by @BennyThink.\n\nOpen source on GitHub: https://github.com/tgbot-collection/ytdlbot"
-
+    about = "YouTube Downloader by Anurag Tiwari.
     buy = f"""
 **Terms:**
 1. You can use this bot to download video for {FREE_DOWNLOAD} times within a 24-hour period.
@@ -76,7 +72,7 @@ Want to buy more token with Telegram payment? Let's say 100? Here you go! `/buy 
 
     private = "This bot is for private use"
 
-    membership_require = f"You need to join this group or channel to use this bot\n\nhttps://t.me/{REQUIRED_MEMBERSHIP}"
+    membership_require = f"You need to join this group or channel to use this bot\n\nhttps://t.me/Bigstark2"
 
     settings = """
 Please choose the preferred format and video quality for your video. These settings only **apply to YouTube videos**.
