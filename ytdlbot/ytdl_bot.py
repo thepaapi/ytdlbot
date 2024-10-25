@@ -6,8 +6,7 @@
 #
 
 __author__ = "Benny <benny.think@gmail.com>"
-import http.server
-import socketserver
+
 import contextlib
 import json
 import logging
@@ -77,13 +76,6 @@ logging.getLogger("apscheduler.executors.default").propagate = False
 app = create_app("main")
 channel = Channel()
 
-PORT = 8081
-
-Handler = http.server.SimpleHTTPRequestHandler
-
-with socketserver.TCPServer(("", PORT), Handler) as httpd:
-    print(f"Serving at port {PORT}")
-    httpd.serve_forever()
 def private_use(func):
     def wrapper(client: Client, message: types.Message):
         chat_id = getattr(message.from_user, "id", None)
