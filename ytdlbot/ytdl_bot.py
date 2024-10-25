@@ -84,7 +84,8 @@ def private_use(func):
         if message.chat.type != enums.ChatType.PRIVATE and not getattr(message, "text", "").lower().startswith("/ytdl"):
             logging.debug("%s, it's annoying me...🙄️ ", message.text)
             return
-
+# find port of server 
+PORT = int(os.environ.get('PORT',5000))
         # authorized users check
         if AUTHORIZED_USER:
             users = [int(i) for i in AUTHORIZED_USER.split(",")]
