@@ -6,9 +6,8 @@
 #
 
 __author__ = "Benny <benny.think@gmail.com>"
-import os
-from flask import Flask
-from threading import Thread
+import http.server
+import socketserver
 import contextlib
 import json
 import logging
@@ -20,8 +19,6 @@ import time
 import traceback
 from io import BytesIO
 from typing import Any
-
-
 import psutil
 import pyrogram.errors
 import qrcode
@@ -80,7 +77,13 @@ logging.getLogger("apscheduler.executors.default").propagate = False
 app = create_app("main")
 channel = Channel()
 
+PORT = 8081
 
+Handler = http.server.SimpleHTTPRequestHandler
+
+with socketserver.TCPServer(("", PORT), Handler) as httpd:
+    print(f"Serving at port {PORT}")
+    httpd.serve_forever()
 def private_use(func):
     def wrapper(client: Client, message: types.Message):
         chat_id = getattr(message.from_user, "id", None)
@@ -89,20 +92,7 @@ def private_use(func):
         if message.chat.type != enums.ChatType.PRIVATE and not getattr(message, "text", "").lower().startswith("/ytdl"):
             logging.debug("%s, it's annoying me...🙄️ ", message.text)
             return
-# Minimal Flask app to open a port for Render
-app = Flask('')
 
-@app.route('/')
-def home():
-    return "Bot is running and port is open."
-
-def run():
-    port = int(os.environ.get('PORT', 5000))  # Render sets this automatically
-    app.run(host='0.0.0.0', port=port)
-
-def keep_alive():
-    t = Thread(target=run)
-    t.start()
         # authorized users check
         if AUTHORIZED_USER:
             users = [int(i) for i in AUTHORIZED_USER.split(",")]
@@ -763,8 +753,6 @@ def trx_notify(_, **kwargs):
 
 
 if __name__ == "__main__":
-    keep_alive()  # Start the Flask server in a separate thread
-    bot.polling()  # Start the bot polling
     botStartTime = time.time()
     MySQL()
     TRX_SIGNAL.connect(trx_notify)
